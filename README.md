@@ -1,4 +1,4 @@
-# codes-on-operators-and-word-count-func
+# codes-on-expression-and-word-count-func
 
 def calculate(expression):
     def operate(a, b, op):
@@ -54,6 +54,29 @@ def calculate(expression):
         apply_ops(values, ops)
 
     return values[0]
+
+****************************************************************************************************************************************************************
+
+# Word Count function
+
+def word_count(sentence, N=3):
+
+    sentence = sentence.lower()
+    punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+    for p in punctuation:
+        sentence = sentence.replace(p, "")
+    words = sentence.split()
+    freq = {}
+    for word in words:
+        if word in freq:
+            freq[word] += 1
+        else:
+            freq[word] = 1
+    sorted_words = sorted(freq.items(), key=lambda x: x[1], reverse=True)
+    return sorted_words[:N]
+
+
+
 
 
 
